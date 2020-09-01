@@ -21,7 +21,7 @@ const TodoList = props => {
       let status = todo.done ? { type: 'warning', icon: 'undo' } : { type: 'success', icon: 'check' }
       const isHidden = filter(todo.description)
       return (
-        <tr key={ todo._id } hidden={isHidden}>
+        <tr key={ todo._id } hidden={ isHidden }>
           <td className={ todo.done ? 'markedAsDone' : '' }>{ todo.description }</td>
           <td>
             <IconButton type={ status.type } icon={ status.icon } onClick={ () => props.toggleDone(todo) }/>

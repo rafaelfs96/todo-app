@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { urlencoded } from '../utils/helper'
 
 import {
   DESCRIPTION_CHANGED,
@@ -26,7 +25,7 @@ export const search = () => {
 
 export const add = description => {
   return dispatch => {
-    axios.post(URL, urlencoded({ description }))
+    axios.post(URL, { description })
       .then(resp => dispatch({ type: TODO_ADDED, payload: resp.data }))
       .then(resp => dispatch(search()))
   }
@@ -34,7 +33,7 @@ export const add = description => {
 
 export const toggleDone = todo => {
   return dispatch => {
-    axios.put(`${URL}/${todo._id}`, urlencoded({ ...todo, done: !todo.done }))
+    axios.put(`${URL}/${todo._id}`, { ...todo, done: !todo.done })
       .then(resp => dispatch({ type: TOGGLE_DONE }))
       .then(resp => dispatch(search()))
   }
