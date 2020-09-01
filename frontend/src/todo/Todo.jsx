@@ -6,8 +6,6 @@ import PageHeader from '../template/PageHeader'
 import TodoForm from './TodoForm'
 import TodoList from './TodoList'
 
-import { urlencoded } from '../utils/helper'
-
 const URL = 'http://localhost:3003/api/todos'
 
 export default class Todo extends Component {
@@ -37,7 +35,7 @@ export default class Todo extends Component {
 
   handleAdd() {
     const {description} = this.state
-    const data = urlencoded({ description })
+    const data = { description }
 
     axios.post(URL, data)
       .then(resp => this.refresh())
@@ -49,7 +47,7 @@ export default class Todo extends Component {
   }
 
   handleToogleDone(todo) {
-    const data = urlencoded({ ...todo, done: !todo.done })
+    const data = { ...todo, done: !todo.done }
   
     axios.put(`${URL}/${todo._id}`, data)
       .then(resp => this.refresh(this.state.description))
