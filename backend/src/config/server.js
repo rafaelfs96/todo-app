@@ -10,6 +10,6 @@ server.use(bodyParser.json())
 server.use(bodyParser.json({ type: 'application/vnd.api+json' }))
 server.use(allowCors)
 
-server.listen(port, () => console.log(`backend runnign on port ${port}`))
+server.listen(port, () => console.log(`backend running on port ${port}`))
 
 module.exports = server
