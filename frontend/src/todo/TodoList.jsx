@@ -33,7 +33,7 @@ const TodoList = props => {
   }
 
   return (
-    <table className="table">
+    <table className='table'>
       <thead>
         <tr>
           <th>Descricao</th>
